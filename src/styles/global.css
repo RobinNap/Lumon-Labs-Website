@@ -1,4 +1,4 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@700,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,80 +12,248 @@
   }
 
   body {
-    @apply bg-surface text-midnight-100 font-sans;
-    background-image: 
-      radial-gradient(at 40% 20%, rgba(0, 212, 170, 0.08) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(0, 212, 170, 0.05) 0px, transparent 50%);
+    @apply font-serif text-white;
+    background: 
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 50% at 80% 70%, rgba(134, 239, 172, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse 90% 70% at 50% 50%, rgba(74, 222, 128, 0.3) 0%, transparent 60%),
+      linear-gradient(160deg, 
+        #86efac 0%,
+        #4ade80 20%,
+        #22c55e 45%,
+        #16a34a 70%,
+        #15803d 100%
+      );
     background-attachment: fixed;
+    min-height: 100vh;
   }
 
   ::selection {
-    @apply bg-accent/30 text-white;
-  }
-
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    @apply w-2;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-surface;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-midnight-700 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-midnight-600;
+    @apply bg-white/30 text-white;
   }
 }
 
 @layer components {
-  .text-gradient {
-    @apply bg-gradient-to-r from-accent via-accent-300 to-accent-400 bg-clip-text text-transparent;
+  /* Grain texture overlay - very subtle */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   }
 
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-xl transition-all duration-300;
+  /* Ambient glow effects */
+  .ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
   }
 
+  .glow-1 {
+    width: 700px;
+    height: 700px;
+    background: rgba(255, 255, 255, 0.2);
+    top: -250px;
+    left: -150px;
+    animation: float 14s ease-in-out infinite;
+  }
+
+  .glow-2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(134, 239, 172, 0.35);
+    bottom: -150px;
+    right: -100px;
+    animation: float 16s ease-in-out infinite reverse;
+  }
+
+  .glow-3 {
+    width: 450px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.15);
+    top: 50%;
+    right: 25%;
+    animation: float 20s ease-in-out infinite;
+    animation-delay: -7s;
+  }
+
+  /* The iconic Lumon ring */
+  .lumon-ring {
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+  }
+
+  .lumon-ring.animate {
+    animation: ringDraw 2s ease-out forwards;
+  }
+
+  @keyframes ringDraw {
+    0% {
+      stroke-dashoffset: 440;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  /* Logo text with ring integration */
+  .logo-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Glass morphism cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+  }
+
+  .glass-card-subtle {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply btn bg-accent text-midnight-950 hover:bg-accent-400 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 font-sans font-medium text-sm tracking-wide;
+    @apply bg-white text-emerald-700 rounded-full;
+    @apply transition-all duration-300;
+    @apply hover:bg-white/90 hover:-translate-y-0.5;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.4);
   }
 
   .btn-secondary {
-    @apply btn bg-surface-raised border border-midnight-700 text-midnight-100 hover:border-accent/50 hover:text-accent hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 font-sans font-medium text-sm tracking-wide;
+    @apply bg-transparent text-white rounded-full;
+    @apply border border-white/30;
+    @apply transition-all duration-300;
+    @apply hover:bg-white/10 hover:border-white/50;
   }
 
-  .btn-ghost {
-    @apply btn text-midnight-300 hover:text-accent;
+  /* Navigation link styles */
+  .nav-link {
+    @apply font-sans text-sm font-medium text-white/70 transition-all duration-300;
+    @apply hover:text-white;
   }
 
-  .card {
-    @apply bg-surface-raised/50 backdrop-blur-sm border border-midnight-800/50 rounded-2xl p-6 transition-all duration-300;
+  .nav-link.active {
+    @apply text-white;
   }
 
-  .card-hover {
-    @apply card hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 hover:-translate-y-1;
-  }
-
+  /* Section spacing */
   .section {
-    @apply py-20 md:py-28;
+    @apply py-24 md:py-32;
   }
 
-  .container-narrow {
-    @apply max-w-4xl mx-auto px-6;
+  /* Typography utilities */
+  .text-display {
+    @apply font-serif font-light tracking-tight;
   }
 
-  .link {
-    @apply text-accent hover:text-accent-400 underline underline-offset-4 transition-colors;
+  .text-body {
+    @apply font-sans font-light leading-relaxed;
   }
 
-  /* Focus styles for accessibility */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-surface;
+  /* App card specific styles */
+  .app-card {
+    @apply glass-card p-6 transition-all duration-500;
+    @apply hover:bg-white/15 hover:scale-[1.02];
+  }
+
+  .app-card:hover {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.25);
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-white/50;
+    @apply transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  /* Page transitions */
+  .page-enter {
+    animation: pageEnter 0.6s ease-out forwards;
+  }
+
+  @keyframes pageEnter {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Content container */
+  .content-wrapper {
+    @apply relative z-10;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+  }
+
+  /* Hero specific */
+  .hero-title {
+    @apply font-serif font-light text-white;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-tagline {
+    @apply font-serif font-light text-white/80;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    line-height: 1.4;
   }
 }
 
@@ -99,11 +267,25 @@
   .animate-delay-300 {
     animation-delay: 300ms;
   }
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
   .animate-delay-500 {
     animation-delay: 500ms;
   }
+  .animate-delay-700 {
+    animation-delay: 700ms;
+  }
+  .animate-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  .animate-delay-1500 {
+    animation-delay: 1500ms;
+  }
+  .animate-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  .animate-delay-2500 {
+    animation-delay: 2500ms;
+  }
+  .animate-delay-3000 {
+    animation-delay: 3000ms;
+  }
 }
-

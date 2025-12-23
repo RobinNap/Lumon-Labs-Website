@@ -1,0 +1,137 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="About" 
+  description="Learn about Lumon Labs — a creative studio building apps that blow your mind for Apple platforms."
+>
+  <!-- Hero -->
+  <section class="section pt-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h1 class="font-serif text-5xl md:text-6xl font-light text-white mb-6">
+          About Us
+        </h1>
+        <p class="font-sans text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          We're Lumon Labs — a creative studio dedicated to crafting beautiful, 
+          thoughtful apps that make life a little more delightful.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section pt-0">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="glass-card p-8 md:p-12 mb-12">
+        <h2 class="font-serif text-3xl font-light text-white mb-6">Our Story</h2>
+        <div class="space-y-6 font-sans text-white/70 leading-relaxed">
+          <p>
+            Lumon Labs was born from a simple belief: software should be a joy to use. 
+            In a world filled with bloated apps and intrusive trackers, we wanted to 
+            create something different — something that respects both your time and your privacy.
+          </p>
+          <p>
+            We focus exclusively on Apple platforms because we share Apple's obsession 
+            with the details. From the satisfying haptics on iPhone to the seamless 
+            continuity across devices, Apple provides a canvas for creating truly 
+            exceptional experiences.
+          </p>
+          <p>
+            Every app we ship reflects our values: intentional design, privacy by default, 
+            and an unwavering commitment to quality over quantity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section pt-0">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-serif text-3xl font-light text-white mb-10 text-center">What We Believe</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass-card-subtle p-6 text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center">
+            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg text-white mb-2">Privacy First</h3>
+          <p class="font-sans text-white/50 text-sm leading-relaxed">
+            Your data belongs to you. We build apps that work locally whenever possible.
+          </p>
+        </div>
+        
+        <div class="glass-card-subtle p-6 text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center">
+            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg text-white mb-2">Respect Your Time</h3>
+          <p class="font-sans text-white/50 text-sm leading-relaxed">
+            No dark patterns. No engagement tricks. Just tools that help you live.
+          </p>
+        </div>
+        
+        <div class="glass-card-subtle p-6 text-center">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center">
+            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-lg text-white mb-2">Native Excellence</h3>
+          <p class="font-sans text-white/50 text-sm leading-relaxed">
+            Built with Swift and SwiftUI. Fast, fluid, and feels right at home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology -->
+  <section class="section">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-serif text-3xl font-light text-white mb-10 text-center">Our Toolkit</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { name: 'Swift', desc: 'Modern & safe' },
+          { name: 'SwiftUI', desc: 'Declarative UI' },
+          { name: 'Xcode', desc: 'IDE & tools' },
+          { name: 'Core Data', desc: 'Local storage' },
+          { name: 'CloudKit', desc: 'Sync & backup' },
+          { name: 'App Intents', desc: 'Siri & Shortcuts' },
+          { name: 'WidgetKit', desc: 'Home Screen' },
+          { name: 'StoreKit 2', desc: 'Purchases' },
+        ].map((tech) => (
+          <div class="glass-card-subtle p-4 text-center">
+            <h3 class="font-sans font-medium text-white text-sm mb-1">{tech.name}</h3>
+            <p class="font-sans text-xs text-white/40">{tech.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section pb-32">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="glass-card p-10 md:p-14">
+        <h2 class="font-serif text-3xl font-light text-white mb-4">
+          Want to work together?
+        </h2>
+        <p class="font-sans text-white/60 mb-8 max-w-lg mx-auto">
+          Whether you have feedback on our apps, a project idea, or just want to say hi — we'd love to hear from you.
+        </p>
+        <a href="/contact" class="btn-primary">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

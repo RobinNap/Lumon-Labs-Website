@@ -1,0 +1,161 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const supportEmail = 'support@lumonlabs.io';
+
+const faqs = [
+  {
+    question: "How do I restore my purchases?",
+    answer: "Open the app, go to Settings, and look for 'Restore Purchases'. Make sure you're signed into the same Apple ID you used for the original purchase. If you still have issues, try signing out and back into the App Store."
+  },
+  {
+    question: "How do I sync my data across devices?",
+    answer: "Most of our apps support iCloud sync. Make sure iCloud is enabled for the app in your device's Settings → [Your Name] → iCloud. All devices must be signed into the same Apple ID."
+  },
+  {
+    question: "The app is crashing. What should I do?",
+    answer: "First, try force-quitting the app and reopening it. If that doesn't work, restart your device. Make sure you're running the latest version of both the app and your operating system. If issues persist, please contact us with details about what you were doing when the crash occurred."
+  },
+  {
+    question: "How do I cancel my subscription?",
+    answer: "Subscriptions are managed through Apple, not directly in our apps. Go to Settings → [Your Name] → Subscriptions on your device to view and manage all your active subscriptions."
+  },
+  {
+    question: "Can I get a refund?",
+    answer: "Refunds are processed by Apple. Visit reportaproblem.apple.com to request a refund for any App Store purchase. We're happy to help troubleshoot issues before you go that route!"
+  },
+  {
+    question: "Is my data backed up?",
+    answer: "If you have iCloud backup enabled for your device, your app data is included. Additionally, apps with iCloud sync store data in your iCloud account. We recommend keeping iCloud backup enabled for peace of mind."
+  }
+];
+---
+
+<BaseLayout 
+  title="Support" 
+  description="Get help with Lumon Labs apps. Find answers to common questions or contact our support team."
+>
+  <section class="section pt-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="font-serif text-5xl md:text-6xl font-light text-white mb-6">
+          How can we help?
+        </h1>
+        <p class="font-sans text-lg text-white/70 max-w-2xl mx-auto">
+          Find answers to common questions below, or reach out to our support team directly.
+        </p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mb-16">
+        <h2 class="font-serif text-2xl font-light text-white mb-8 text-center">
+          Frequently Asked Questions
+        </h2>
+        
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="glass-card group cursor-pointer p-6">
+              <summary class="flex items-center justify-between font-sans font-medium text-white list-none">
+                <span>{faq.question}</span>
+                <svg 
+                  class="w-5 h-5 text-white/50 group-open:rotate-180 transition-transform" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="1.5" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <p class="mt-4 font-sans text-white/60 leading-relaxed">
+                {faq.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+      <!-- Contact Support -->
+      <div class="glass-card text-center p-10 mb-12">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        
+        <h2 class="font-serif text-2xl font-light text-white mb-4">
+          Still need help?
+        </h2>
+        <p class="font-sans text-white/60 mb-8 max-w-lg mx-auto">
+          Can't find what you're looking for? Our support team is here to help. 
+          We typically respond within 24-48 hours.
+        </p>
+        
+        <a 
+          href={`mailto:${supportEmail}`}
+          class="btn-primary"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contact Support
+        </a>
+        
+        <p class="mt-6 font-sans text-sm text-white/40">
+          {supportEmail}
+        </p>
+      </div>
+
+      <!-- Helpful Tips -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass-card-subtle p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3 class="font-sans font-medium text-white mb-2">Update Your App</h3>
+          <p class="font-sans text-sm text-white/50">
+            Make sure you're running the latest version from the App Store.
+          </p>
+        </div>
+        
+        <div class="glass-card-subtle p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+            </svg>
+          </div>
+          <h3 class="font-sans font-medium text-white mb-2">Restart Your Device</h3>
+          <p class="font-sans text-sm text-white/50">
+            A simple restart can resolve many common issues.
+          </p>
+        </div>
+        
+        <div class="glass-card-subtle p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="font-sans font-medium text-white mb-2">Check iCloud Status</h3>
+          <p class="font-sans text-sm text-white/50">
+            Sync issues? Check <a href="https://www.apple.com/support/systemstatus/" target="_blank" rel="noopener noreferrer" class="text-white/70 underline hover:text-white">Apple's System Status</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -1,0 +1,301 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const apps = await getCollection('apps');
+const featuredApps = apps
+  .filter(app => app.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Home">
+  <!-- Hero Section with Animated Logo -->
+  <section class="min-h-screen flex items-center justify-center relative" id="hero">
+    <div class="text-center px-6">
+      <!-- Animated Ring Logo -->
+      <div class="mb-8 flex justify-center" id="logo-container">
+        <svg 
+          class="w-32 h-32 md:w-40 md:h-40" 
+          viewBox="0 0 160 160" 
+          fill="none"
+          id="hero-ring"
+        >
+          <circle 
+            cx="80" 
+            cy="80" 
+            r="60" 
+            stroke="white" 
+            stroke-width="10"
+            stroke-linecap="round"
+            class="lumon-ring"
+            id="ring-circle"
+          />
+        </svg>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="hero-title mb-6 opacity-0" id="hero-title">
+        <span class="inline-block" id="title-lumon">Lum</span><span class="inline-block relative" id="title-o">o</span><span class="inline-block" id="title-n">n</span>
+        <span class="inline-block ml-4" id="title-labs">Labs</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-tagline max-w-2xl mx-auto mb-12 opacity-0" id="hero-tagline">
+        Building apps that blow your mind
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0" id="hero-cta">
+        <a href="/apps" class="btn-primary">
+          Explore Our Apps
+        </a>
+        <a href="/about" class="btn-secondary">
+          Learn More
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0" id="scroll-indicator">
+        <div class="scroll-indicator text-white/50">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apps Section -->
+  <section class="section" id="apps-section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl md:text-5xl font-light text-white mb-4">Our Creations</h2>
+        <p class="font-sans text-white/70 text-lg max-w-xl mx-auto">
+          Thoughtfully designed apps for the Apple ecosystem
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Motif Designer -->
+        <a href="/apps/motif-designer" class="app-card group block">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+              <span class="text-3xl">🎨</span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-serif text-xl text-white">Motif Designer</h3>
+                <span class="font-sans text-xs px-2 py-0.5 bg-white/10 rounded-full text-white/70">Graphics & Design</span>
+              </div>
+              <p class="font-sans text-white/60 text-sm leading-relaxed">
+                Create stunning patterns and motifs with an intuitive, powerful design tool built for creatives.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Stage Timer -->
+        <a href="/apps/stage-timer" class="app-card group block">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+              <span class="text-3xl">⏱️</span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-serif text-xl text-white">Stage Timer</h3>
+                <span class="font-sans text-xs px-2 py-0.5 bg-white/10 rounded-full text-white/70">Utilities</span>
+              </div>
+              <p class="font-sans text-white/60 text-sm leading-relaxed">
+                Professional countdown timer for presentations, events, and performances. Never run over time again.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- RhythmKey -->
+        <a href="/apps/rhythmkey" class="app-card group block">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+              <span class="text-3xl">🎹</span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-serif text-xl text-white">RhythmKey</h3>
+                <span class="font-sans text-xs px-2 py-0.5 bg-white/10 rounded-full text-white/70">Utilities</span>
+              </div>
+              <p class="font-sans text-white/60 text-sm leading-relaxed">
+                Turn your keyboard into a musical instrument. Express yourself through sound with every keystroke.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Experiences -->
+        <a href="/apps/experiences" class="app-card group block">
+          <div class="flex items-start gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+              <span class="text-3xl">🌍</span>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <h3 class="font-serif text-xl text-white">Experiences</h3>
+                <span class="font-sans text-xs px-2 py-0.5 bg-white/10 rounded-full text-white/70">Travel</span>
+              </div>
+              <p class="font-sans text-white/60 text-sm leading-relaxed">
+                Capture and relive your travel memories. Beautiful journal for your adventures around the world.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="/apps" class="btn-secondary">
+          View All Apps
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="section">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="glass-card p-10 md:p-16 text-center">
+        <blockquote class="font-serif text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
+          "We believe software should be a joy to use. Every pixel, every interaction, every moment — designed with intention."
+        </blockquote>
+        <div class="w-12 h-px bg-white/30 mx-auto mb-6"></div>
+        <p class="font-sans text-white/60 text-sm uppercase tracking-widest">The Lumon Labs Philosophy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section pb-32">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-3xl md:text-4xl font-light text-white mb-4">Let's Create Something Beautiful</h2>
+      <p class="font-sans text-white/70 mb-8 max-w-lg mx-auto">
+        Have a question, feedback, or just want to say hello? We'd love to hear from you.
+      </p>
+      <a href="/contact" class="btn-primary">
+        Get in Touch
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Ring animation */
+  .lumon-ring {
+    stroke-dasharray: 377;
+    stroke-dashoffset: 377;
+  }
+
+  .lumon-ring.animate {
+    animation: ringDraw 1.5s ease-out forwards;
+  }
+
+  @keyframes ringDraw {
+    0% {
+      stroke-dashoffset: 377;
+      opacity: 0.3;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  /* Logo transition to letter O */
+  #logo-container {
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #logo-container.morphed {
+    position: absolute;
+    transform: scale(0.28) translateX(-12.5rem);
+  }
+
+  /* Title animation */
+  #hero-title {
+    position: relative;
+  }
+
+  #hero-title.visible {
+    opacity: 1;
+    animation: fadeSlideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Tagline and CTA animations */
+  #hero-tagline.visible {
+    animation: fadeSlideUp 0.8s ease-out 0.2s forwards;
+  }
+
+  #hero-cta.visible {
+    animation: fadeSlideUp 0.8s ease-out 0.4s forwards;
+  }
+
+  #scroll-indicator.visible {
+    animation: fadeIn 1s ease-out 0.8s forwards;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+</style>
+
+<script>
+  // Hero animation sequence
+  document.addEventListener('DOMContentLoaded', () => {
+    const ring = document.getElementById('ring-circle');
+    const logoContainer = document.getElementById('logo-container');
+    const heroTitle = document.getElementById('hero-title');
+    const heroTagline = document.getElementById('hero-tagline');
+    const heroCta = document.getElementById('hero-cta');
+    const scrollIndicator = document.getElementById('scroll-indicator');
+
+    // Start ring drawing animation
+    setTimeout(() => {
+      ring?.classList.add('animate');
+    }, 300);
+
+    // After ring is drawn, show the title
+    setTimeout(() => {
+      heroTitle?.classList.add('visible');
+    }, 1800);
+
+    // Show tagline
+    setTimeout(() => {
+      heroTagline?.classList.add('visible');
+    }, 2200);
+
+    // Show CTA buttons
+    setTimeout(() => {
+      heroCta?.classList.add('visible');
+    }, 2600);
+
+    // Show scroll indicator
+    setTimeout(() => {
+      scrollIndicator?.classList.add('visible');
+    }, 3200);
+  });
+</script>

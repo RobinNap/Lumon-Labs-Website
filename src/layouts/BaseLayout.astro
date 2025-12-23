@@ -8,17 +8,19 @@ interface Props {
   description?: string;
   ogImage?: string;
   noIndex?: boolean;
+  showIntro?: boolean;
 }
 
 const { 
   title, 
-  description = 'Lumon Labs crafts thoughtful apps for Apple platforms. We believe in software that respects your time and enhances your life.',
+  description = 'Lumon Labs — Building apps that blow your mind. Creators of Motif Designer, Stage Timer, RhythmKey, and Experiences.',
   ogImage = '/og-image.png',
-  noIndex = false 
+  noIndex = false,
+  showIntro = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const fullTitle = title === 'Home' ? 'Lumon Labs — Apps for Apple Platforms' : `${title} — Lumon Labs`;
+const fullTitle = title === 'Home' ? 'Lumon Labs — Building apps that blow your mind' : `${title} — Lumon Labs`;
 ---
 
 <!DOCTYPE html>
@@ -58,16 +60,26 @@ const fullTitle = title === 'Home' ? 'Lumon Labs — Apps for Apple Platforms' :
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
     
     <!-- Theme Color -->
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#22c55e" />
   </head>
-  <body class="min-h-screen flex flex-col">
-    <Header currentPath={Astro.url.pathname} />
+  <body class="min-h-screen overflow-x-hidden">
+    <!-- Ambient glow effects -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
     
-    <main class="flex-1 pt-20">
-      <slot />
-    </main>
+    <!-- Grain texture overlay -->
+    <div class="grain"></div>
     
-    <Footer />
+    <!-- Main content -->
+    <div class="content-wrapper">
+      <Header currentPath={Astro.url.pathname} />
+      
+      <main class="page-enter">
+        <slot />
+      </main>
+      
+      <Footer />
+    </div>
   </body>
 </html>
-

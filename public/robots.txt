@@ -1,0 +1,7 @@
+# Lumon Labs
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lumonlabs.com/sitemap-index.xml
+

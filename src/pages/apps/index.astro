@@ -1,0 +1,81 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AppCard from '@/components/AppCard.astro';
+import { getCollection } from 'astro:content';
+
+const apps = await getCollection('apps');
+const sortedApps = apps.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout 
+  title="Apps" 
+  description="Explore our collection of thoughtfully designed apps for Apple platforms. Motif Designer, Stage Timer, RhythmKey, and Experiences."
+>
+  <!-- Hero -->
+  <section class="section pt-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="font-serif text-5xl md:text-6xl font-light text-white mb-6">
+          Our Apps
+        </h1>
+        <p class="font-sans text-lg text-white/70 max-w-xl mx-auto leading-relaxed">
+          Thoughtfully crafted software for the Apple ecosystem. 
+          Each app designed with intention and care.
+        </p>
+      </div>
+
+      <!-- Apps Grid -->
+      <div class="grid md:grid-cols-2 gap-6 mb-16">
+        {sortedApps.map((app) => (
+          <AppCard
+            title={app.data.title}
+            tagline={app.data.tagline}
+            description={app.data.description}
+            icon={app.data.icon}
+            platforms={app.data.platforms}
+            appStoreUrl={app.data.appStoreUrl}
+            status={app.data.status}
+            color={app.data.color}
+            href={`/apps/${app.slug}`}
+          />
+        ))}
+      </div>
+
+      <!-- Platform Support -->
+      <div class="glass-card p-8 text-center">
+        <h2 class="font-serif text-2xl font-light text-white mb-6">Available Across Apple Platforms</h2>
+        <div class="flex items-center justify-center gap-8 flex-wrap">
+          {[
+            { name: 'iPhone', icon: '📱' },
+            { name: 'iPad', icon: '📱' },
+            { name: 'Mac', icon: '💻' },
+            { name: 'Watch', icon: '⌚' },
+            { name: 'Vision', icon: '🥽' },
+          ].map((platform) => (
+            <div class="flex flex-col items-center gap-2">
+              <span class="text-3xl">{platform.icon}</span>
+              <span class="font-sans text-xs text-white/50">{platform.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section pb-32">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-3xl font-light text-white mb-4">Have Feedback?</h2>
+      <p class="font-sans text-white/70 mb-8 max-w-lg mx-auto">
+        We love hearing from users. Your feedback helps us make our apps even better.
+      </p>
+      <a href="/contact" class="btn-secondary">
+        Send Feedback
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

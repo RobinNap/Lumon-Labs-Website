@@ -1,0 +1,150 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const lastUpdated = 'December 2024';
+const contactEmail = 'privacy@lumonlabs.io';
+---
+
+<BaseLayout 
+  title="Privacy Policy" 
+  description="Lumon Labs Privacy Policy — Learn how we handle your data across our apps."
+>
+  <section class="section pt-32">
+    <div class="max-w-4xl mx-auto px-6">
+      <header class="mb-12 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-light text-white mb-4">Privacy Policy</h1>
+        <p class="font-sans text-white/50">Last updated: {lastUpdated}</p>
+      </header>
+
+      <div class="space-y-6">
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Our Commitment</h2>
+          <p class="font-sans text-white/70 leading-relaxed">
+            At Lumon Labs, we believe privacy is a fundamental right. We design our apps with privacy 
+            at the core — not as an afterthought. This policy explains how we handle information 
+            across all our applications.
+          </p>
+        </div>
+
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Data We Collect</h2>
+          <p class="font-sans text-white/70 leading-relaxed mb-4">
+            <strong class="text-white">The short version:</strong> We collect as little data as possible, 
+            and most of our apps work entirely offline.
+          </p>
+          
+          <h3 class="font-sans font-medium text-white mt-6 mb-3">Information Stored Locally</h3>
+          <p class="font-sans text-white/60 leading-relaxed mb-4">
+            Most data in our apps is stored locally on your device using Apple's secure storage systems 
+            (Core Data, UserDefaults, Keychain). This information never leaves your device unless you 
+            explicitly enable sync features.
+          </p>
+          
+          <h3 class="font-sans font-medium text-white mt-6 mb-3">iCloud Sync (Optional)</h3>
+          <p class="font-sans text-white/60 leading-relaxed mb-4">
+            Some apps offer iCloud sync to keep your data synchronized across your Apple devices. 
+            When enabled, your data is stored in your personal iCloud account, protected by your Apple ID. 
+            We do not have access to this data.
+          </p>
+          
+          <h3 class="font-sans font-medium text-white mt-6 mb-3">Analytics (Minimal)</h3>
+          <p class="font-sans text-white/60 leading-relaxed">
+            We may use Apple's privacy-preserving analytics to understand aggregate usage patterns. 
+            This data is anonymized and cannot be used to identify individual users. You can opt out 
+            in your device's Privacy settings.
+          </p>
+        </div>
+
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Data We Don't Collect</h2>
+          <ul class="space-y-3 font-sans text-white/70">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-1">✓</span>
+              <span>We don't sell your data to third parties</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-1">✓</span>
+              <span>We don't use third-party advertising SDKs</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-1">✓</span>
+              <span>We don't track you across apps or websites</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-1">✓</span>
+              <span>We don't collect personal information without explicit consent</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-400 mt-1">✓</span>
+              <span>We don't require account creation to use our apps</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Third-Party Services</h2>
+          <p class="font-sans text-white/70 leading-relaxed mb-4">
+            Our apps may integrate with the following Apple services:
+          </p>
+          <ul class="space-y-2 font-sans text-white/60">
+            <li><strong class="text-white">iCloud:</strong> For optional data sync across your devices</li>
+            <li><strong class="text-white">App Store:</strong> For purchases and subscriptions</li>
+            <li><strong class="text-white">Apple Analytics:</strong> For anonymized usage data (opt-out available)</li>
+          </ul>
+          <p class="font-sans text-white/60 leading-relaxed mt-4">
+            These services are governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="text-white underline underline-offset-4 hover:text-white/80">Apple's Privacy Policy</a>.
+          </p>
+        </div>
+
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Your Rights</h2>
+          <p class="font-sans text-white/70 leading-relaxed mb-4">
+            You have complete control over your data:
+          </p>
+          <ul class="space-y-2 font-sans text-white/60">
+            <li><strong class="text-white">Access:</strong> View your data within the app settings</li>
+            <li><strong class="text-white">Export:</strong> Export your data where supported</li>
+            <li><strong class="text-white">Delete:</strong> Delete app data by uninstalling the app or using in-app options</li>
+            <li><strong class="text-white">Opt-out:</strong> Disable analytics in iOS Settings → Privacy → Analytics</li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Children's Privacy</h2>
+          <p class="font-sans text-white/60 leading-relaxed">
+            Our apps do not knowingly collect personal information from children under 13. 
+            If you believe we have inadvertently collected such information, please contact us 
+            and we will promptly delete it.
+          </p>
+        </div>
+
+        <div class="glass-card p-8">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Changes to This Policy</h2>
+          <p class="font-sans text-white/60 leading-relaxed">
+            We may update this policy from time to time. We'll notify you of significant changes 
+            through app updates or our website. The "Last updated" date at the top reflects the 
+            most recent revision.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 text-center">
+          <h2 class="font-serif text-2xl font-light text-white mb-4">Contact Us</h2>
+          <p class="font-sans text-white/60 leading-relaxed mb-6">
+            If you have questions about this privacy policy or how we handle your data, 
+            please reach out:
+          </p>
+          <a 
+            href={`mailto:${contactEmail}`}
+            class="btn-primary"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            {contactEmail}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
