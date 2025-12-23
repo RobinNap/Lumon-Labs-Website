@@ -12,31 +12,10 @@ const featuredApps = apps
   <!-- Hero Section with Animated Logo -->
   <section class="min-h-screen flex items-center justify-center relative" id="hero">
     <div class="text-center px-6">
-      <!-- Animated Ring Logo -->
-      <div class="mb-8 flex justify-center" id="logo-container">
-        <svg 
-          class="w-32 h-32 md:w-40 md:h-40" 
-          viewBox="0 0 160 160" 
-          fill="none"
-          id="hero-ring"
-        >
-          <circle 
-            cx="80" 
-            cy="80" 
-            r="60" 
-            stroke="white" 
-            stroke-width="10"
-            stroke-linecap="round"
-            class="lumon-ring"
-            id="ring-circle"
-          />
-        </svg>
-      </div>
-
-      <!-- Main Title -->
-      <h1 class="hero-title mb-6 opacity-0" id="hero-title">
-        <span class="inline-block" id="title-lumon">Lum</span><span class="inline-block relative" id="title-o">o</span><span class="inline-block" id="title-n">n</span>
-        <span class="inline-block ml-4" id="title-labs">Labs</span>
+      <!-- Main Title with integrated ❍ -->
+      <h1 class="hero-title mb-6" id="hero-title">
+        <span class="inline-block opacity-0" id="title-lum">Lum</span><span class="inline-block opacity-0 lumon-ring align-middle relative text-[0.85em] -top-[0.02em]" id="title-o">❍</span><span class="inline-block opacity-0" id="title-n">n</span>
+        <span class="inline-block ml-4 opacity-0" id="title-labs">Labs</span>
       </h1>
 
       <!-- Tagline -->
@@ -192,51 +171,70 @@ const featuredApps = apps
 </BaseLayout>
 
 <style>
-  /* Ring animation */
-  .lumon-ring {
-    stroke-dasharray: 377;
-    stroke-dashoffset: 377;
+  /* Title letter animations */
+  #hero-title span {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
+  #hero-title span.visible {
+    opacity: 1 !important;
+  }
+
+  /* Ring ❍ special animation - appears first and scales down into place */
   .lumon-ring.animate {
-    animation: ringDraw 1.5s ease-out forwards;
+    animation: ringReveal 1s ease-out forwards;
   }
 
-  @keyframes ringDraw {
+  @keyframes ringReveal {
     0% {
-      stroke-dashoffset: 377;
-      opacity: 0.3;
+      opacity: 0;
+      transform: scale(3);
     }
     100% {
-      stroke-dashoffset: 0;
       opacity: 1;
+      transform: scale(1);
     }
   }
 
-  /* Logo transition to letter O */
-  #logo-container {
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Other letters slide in */
+  #title-lum.visible {
+    animation: slideFromLeft 0.5s ease-out forwards;
   }
 
-  #logo-container.morphed {
-    position: absolute;
-    transform: scale(0.28) translateX(-12.5rem);
+  #title-n.visible {
+    animation: slideFromRight 0.5s ease-out forwards;
   }
 
-  /* Title animation */
-  #hero-title {
-    position: relative;
+  #title-labs.visible {
+    animation: slideFromRight 0.5s ease-out 0.1s forwards;
   }
 
-  #hero-title.visible {
-    opacity: 1;
-    animation: fadeSlideUp 0.8s ease-out forwards;
+  @keyframes slideFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes fadeSlideUp {
     0% {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
     100% {
       opacity: 1;
@@ -246,15 +244,15 @@ const featuredApps = apps
 
   /* Tagline and CTA animations */
   #hero-tagline.visible {
-    animation: fadeSlideUp 0.8s ease-out 0.2s forwards;
+    animation: fadeSlideUp 0.6s ease-out forwards;
   }
 
   #hero-cta.visible {
-    animation: fadeSlideUp 0.8s ease-out 0.4s forwards;
+    animation: fadeSlideUp 0.6s ease-out 0.1s forwards;
   }
 
   #scroll-indicator.visible {
-    animation: fadeIn 1s ease-out 0.8s forwards;
+    animation: fadeIn 1s ease-out 0.3s forwards;
   }
 
   @keyframes fadeIn {
@@ -266,36 +264,43 @@ const featuredApps = apps
 <script>
   // Hero animation sequence
   document.addEventListener('DOMContentLoaded', () => {
-    const ring = document.getElementById('ring-circle');
-    const logoContainer = document.getElementById('logo-container');
-    const heroTitle = document.getElementById('hero-title');
+    const titleO = document.getElementById('title-o');
+    const titleLum = document.getElementById('title-lum');
+    const titleN = document.getElementById('title-n');
+    const titleLabs = document.getElementById('title-labs');
     const heroTagline = document.getElementById('hero-tagline');
     const heroCta = document.getElementById('hero-cta');
     const scrollIndicator = document.getElementById('scroll-indicator');
 
-    // Start ring drawing animation
+    // Start with the ❍ ring animation
     setTimeout(() => {
-      ring?.classList.add('animate');
+      titleO?.classList.add('animate', 'visible');
     }, 300);
 
-    // After ring is drawn, show the title
+    // Then reveal the surrounding letters
     setTimeout(() => {
-      heroTitle?.classList.add('visible');
-    }, 1800);
+      titleLum?.classList.add('visible');
+      titleN?.classList.add('visible');
+    }, 1000);
+
+    // Then reveal "Labs"
+    setTimeout(() => {
+      titleLabs?.classList.add('visible');
+    }, 1200);
 
     // Show tagline
     setTimeout(() => {
       heroTagline?.classList.add('visible');
-    }, 2200);
+    }, 1600);
 
     // Show CTA buttons
     setTimeout(() => {
       heroCta?.classList.add('visible');
-    }, 2600);
+    }, 1900);
 
     // Show scroll indicator
     setTimeout(() => {
       scrollIndicator?.classList.add('visible');
-    }, 3200);
+    }, 2400);
   });
 </script>
