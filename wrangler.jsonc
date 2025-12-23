@@ -1,0 +1,8 @@
+{
+  "name": "lumon-labs-website",
+  "compatibility_date": "2025-12-23",
+  "assets": {
+    "directory": "./dist"
+  }
+}
+
