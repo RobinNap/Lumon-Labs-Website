@@ -1,0 +1,82 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  product: [
+    { href: '/apps', label: 'Apps' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
+  ],
+  legal: [
+    { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/support', label: 'Support' },
+  ],
+};
+---
+
+<footer class="border-t border-midnight-800/50 bg-surface/50">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center gap-3 group mb-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent-600 flex items-center justify-center shadow-lg shadow-accent/20">
+            <svg class="w-6 h-6 text-midnight-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <span class="font-display text-xl font-bold text-white">Lumon Labs</span>
+        </a>
+        <p class="text-midnight-400 max-w-sm leading-relaxed">
+          Crafting thoughtful apps for Apple platforms. We believe in software that respects your time and enhances your life.
+        </p>
+      </div>
+
+      <!-- Product Links -->
+      <div>
+        <h3 class="font-display font-bold text-white mb-4">Explore</h3>
+        <ul class="space-y-3">
+          {footerLinks.product.map((link) => (
+            <li>
+              <a href={link.href} class="text-midnight-400 hover:text-accent transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal Links -->
+      <div>
+        <h3 class="font-display font-bold text-white mb-4">Legal</h3>
+        <ul class="space-y-3">
+          {footerLinks.legal.map((link) => (
+            <li>
+              <a href={link.href} class="text-midnight-400 hover:text-accent transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-midnight-800/50 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-midnight-500 text-sm">
+        &copy; {currentYear} Lumon Labs. All rights reserved.
+      </p>
+      
+      <div class="flex items-center gap-2 text-midnight-500 text-sm">
+        <span>Built with</span>
+        <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>for Apple platforms</span>
+      </div>
+    </div>
+  </div>
+</footer>
+

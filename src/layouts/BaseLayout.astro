@@ -1,0 +1,73 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const { 
+  title, 
+  description = 'Lumon Labs crafts thoughtful apps for Apple platforms. We believe in software that respects your time and enhances your life.',
+  ogImage = '/og-image.png',
+  noIndex = false 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title === 'Home' ? 'Lumon Labs — Apps for Apple Platforms' : `${title} — Lumon Labs`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    
+    <!-- No Index -->
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header currentPath={Astro.url.pathname} />
+    
+    <main class="flex-1 pt-20">
+      <slot />
+    </main>
+    
+    <Footer />
+  </body>
+</html>
+

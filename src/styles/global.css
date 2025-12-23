@@ -1,0 +1,109 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=cabinet-grotesk@700,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface text-midnight-100 font-sans;
+    background-image: 
+      radial-gradient(at 40% 20%, rgba(0, 212, 170, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(0, 212, 170, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-midnight-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-midnight-600;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent via-accent-300 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-xl transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-midnight-950 hover:bg-accent-400 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply btn bg-surface-raised border border-midnight-700 text-midnight-100 hover:border-accent/50 hover:text-accent hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply btn text-midnight-300 hover:text-accent;
+  }
+
+  .card {
+    @apply bg-surface-raised/50 backdrop-blur-sm border border-midnight-800/50 rounded-2xl p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 hover:-translate-y-1;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .link {
+    @apply text-accent hover:text-accent-400 underline underline-offset-4 transition-colors;
+  }
+
+  /* Focus styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-surface;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
