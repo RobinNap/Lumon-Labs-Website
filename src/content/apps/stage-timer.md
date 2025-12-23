@@ -1,27 +1,28 @@
 ---
 title: "Stage Timer"
 tagline: "Never run over time again"
-description: "Professional countdown timer designed for presentations, events, and performances. Beautiful, reliable, and easy to use when it matters most."
-platforms: ["iOS", "iPadOS", "macOS"]
-appStoreUrl: "https://apps.apple.com/app/stage-timer"
+description: "The ultimate countdown timer and schedule tracker designed for stage performers, event professionals, and anyone who needs to manage their time efficiently."
+icon: "/images/apps/stage-timer.png"
+platforms: ["iOS", "iPadOS"]
+appStoreUrl: "https://apps.apple.com/app/stage-timer-event-countdown/id6739185854"
 featured: true
 order: 2
 status: "available"
-color: "#f97316"
+color: "#000000"
 ---
 
 ## About Stage Timer
 
-Stage Timer is the professional countdown solution trusted by speakers, event organizers, and performers worldwide. When timing matters, Stage Timer delivers.
+Stay organized, stay on time, and never miss a cue with Stage Timer—the ultimate countdown timer and schedule tracker designed for stage performers, event professionals, and anyone who needs to manage their time efficiently.
 
 ## Key Features
 
-- **Large Display** — Easy-to-read countdown visible from across the room
-- **Color Warnings** — Visual alerts as time runs low (green → yellow → red)
-- **Multiple Timers** — Create and save timer presets for different events
-- **Remote Control** — Control your timer from Apple Watch or another device
-- **Full Screen Mode** — Perfect for external displays and monitors
-- **Customizable** — Adjust colors, fonts, and warning thresholds
+- **Real-Time Countdown** — See exactly how much time is left in your current meeting, performance, or event
+- **Next Event Overview** — Always be prepared with a clear view of what's coming up next
+- **Room Availability Display** — Place Stage Timer outside your meeting room to show when it will be available again
+- **Calendar Integration** — Sync seamlessly with your existing calendar to keep everything in one place
+- **Customizable Alerts** — Set reminders to ensure you stay on track and wrap up on time
+- **Intuitive Design** — A sleek, minimalist interface designed for focus during live events, meetings, or presentations
 
 ## Perfect For
 
@@ -35,5 +36,4 @@ Stage Timer is the professional countdown solution trusted by speakers, event or
 
 - iOS 17.0 or later
 - iPadOS 17.0 or later
-- macOS 14.0 or later
 

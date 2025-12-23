@@ -1,45 +1,36 @@
 ---
 title: "RhythmKey"
-tagline: "Turn your keyboard into an instrument"
-description: "Express yourself through sound with every keystroke. RhythmKey transforms your typing into a musical experience, making work a little more delightful."
-platforms: ["macOS"]
-appStoreUrl: "https://apps.apple.com/app/rhythmkey"
+tagline: "Find BPM & Keys"
+description: "Your go-to app for tempo and key matching, whether you're a musician, DJ, or producer. With a sleek and intuitive interface, stay in sync and in tune with your music."
+icon: "/images/apps/rhythmkey.png"
+platforms: ["iOS"]
+appStoreUrl: "https://apps.apple.com/app/rhythmkey-find-bpm-keys/id6739074803"
 featured: true
 order: 3
 status: "available"
-color: "#0ea5e9"
+color: "#000000"
 ---
 
 ## About RhythmKey
 
-RhythmKey brings joy to your daily typing by turning each keystroke into a musical note. It's not just about sound — it's about making your work feel a little more alive.
+RhythmKey is your go-to app for tempo and key matching, whether you're a musician, DJ, or producer. With a sleek and intuitive interface, RhythmKey helps you stay in sync and in tune with your music.
 
 ## Key Features
 
-- **Musical Typing** — Each key produces a unique, pleasant sound
-- **Multiple Sound Packs** — Choose from piano, synth, percussion, and more
-- **Volume Control** — Adjust the sound level to your preference
-- **Smart Detection** — Automatically pauses when you're in meetings
-- **Low Resource Usage** — Runs efficiently in the background
-- **Menu Bar App** — Quick access without cluttering your dock
-
-## Sound Packs Included
-
-- Classic Piano
-- Soft Synth
-- Typewriter Clicks
-- Nature Sounds
-- Mechanical Keyboard
-- And more...
+- **Tap for Tempo** — Quickly find the BPM by tapping along with your track
+- **Manual Tempo Adjustment** — Swipe over the tempo to increase or decrease it with precision
+- **Half-Time and Double-Time** — Instantly see tempo variations for flexible creativity
+- **Key Matching** — Discover matching keys within the Major Scale to elevate your compositions and transitions
+- **Find Related Keys** — Explore related keys in your scale for harmonic mixing
+- **Dark & Light Mode** — Switch between themes to match your preference
 
 ## Perfect For
 
-- Writers looking for inspiration
-- Developers who want a more enjoyable coding experience
-- Anyone who spends hours at the keyboard
-- Music lovers who want a touch of melody in their day
+- Musicians and composers
+- DJs looking for harmonic mixing
+- Music producers
+- Anyone who needs accurate BPM detection
 
 ## Requirements
 
-- macOS 14.0 or later
-
+- iOS 17.0 or later

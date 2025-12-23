@@ -24,9 +24,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <!-- Contact Options -->
   <section class="section pt-0 pb-32">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="grid md:grid-cols-2 gap-6">
         <!-- Email -->
-        <a href="mailto:hello@lumonlabs.io" class="glass-card p-8 text-center group hover:bg-white/15 transition-all">
+        <a href="mailto:info@lumonlabs.io" class="glass-card p-8 text-center group hover:bg-white/15 transition-all block h-full flex flex-col justify-center">
           <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
             <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -35,33 +35,21 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           </div>
           <h3 class="font-serif text-xl text-white mb-2">Email Us</h3>
           <p class="font-sans text-white/50 text-sm mb-4">For general inquiries and feedback</p>
-          <span class="font-sans text-white/70 text-sm">hello@lumonlabs.io</span>
+          <span class="font-sans text-white/70 text-sm">info@lumonlabs.io</span>
         </a>
 
-        <!-- Twitter -->
-        <a href="https://twitter.com/lumonlabs" target="_blank" rel="noopener noreferrer" class="glass-card p-8 text-center group hover:bg-white/15 transition-all">
+        <!-- Support Section -->
+        <a href="/support" class="glass-card p-8 text-center group hover:bg-white/15 transition-all block h-full flex flex-col justify-center">
           <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
             </svg>
           </div>
-          <h3 class="font-serif text-xl text-white mb-2">Follow Us</h3>
-          <p class="font-sans text-white/50 text-sm mb-4">Stay updated on new releases</p>
-          <span class="font-sans text-white/70 text-sm">@lumonlabs</span>
-        </a>
-      </div>
-
-      <!-- Support Section -->
-      <div class="glass-card p-8 md:p-12 text-center">
-        <h2 class="font-serif text-2xl font-light text-white mb-4">Need Support?</h2>
-        <p class="font-sans text-white/60 mb-6 max-w-lg mx-auto">
-          If you're experiencing issues with any of our apps, check out our support page or reach out directly.
-        </p>
-        <a href="/support" class="btn-secondary">
-          Visit Support
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+          <h3 class="font-serif text-xl text-white mb-2">Need Support?</h3>
+          <p class="font-sans text-white/50 text-sm mb-4">Having issues with any of our apps?</p>
+          <span class="font-sans text-white/70 text-sm">Visit Support →</span>
         </a>
       </div>
 

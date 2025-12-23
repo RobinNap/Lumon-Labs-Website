@@ -41,24 +41,6 @@ const sortedApps = apps.sort((a, b) => a.data.order - b.data.order);
         ))}
       </div>
 
-      <!-- Platform Support -->
-      <div class="glass-card p-8 text-center">
-        <h2 class="font-serif text-2xl font-light text-white mb-6">Available Across Apple Platforms</h2>
-        <div class="flex items-center justify-center gap-8 flex-wrap">
-          {[
-            { name: 'iPhone', icon: '📱' },
-            { name: 'iPad', icon: '📱' },
-            { name: 'Mac', icon: '💻' },
-            { name: 'Watch', icon: '⌚' },
-            { name: 'Vision', icon: '🥽' },
-          ].map((platform) => (
-            <div class="flex flex-col items-center gap-2">
-              <span class="text-3xl">{platform.icon}</span>
-              <span class="font-sans text-xs text-white/50">{platform.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   </section>
 
