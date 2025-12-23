@@ -47,16 +47,20 @@ const platformLabels: Record<string, string> = {
       <!-- Header -->
       <header class="flex flex-col md:flex-row items-start gap-6 mb-10">
         <!-- App Icon -->
-        <div 
-          class="w-24 h-24 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl shadow-2xl shrink-0"
-          style={`background: linear-gradient(135deg, ${app.data.color || '#34d399'}, ${app.data.color || '#34d399'}cc);`}
-        >
-          {app.data.icon ? (
-            <img src={app.data.icon} alt={`${app.data.title} icon`} class="w-20 h-20 md:w-24 md:h-24 rounded-2xl" />
-          ) : (
+        {app.data.icon ? (
+          <img 
+            src={app.data.icon} 
+            alt={`${app.data.title} icon`} 
+            class="w-24 h-24 md:w-32 md:h-32 rounded-3xl shadow-2xl shrink-0" 
+          />
+        ) : (
+          <div 
+            class="w-24 h-24 md:w-32 md:h-32 rounded-3xl flex items-center justify-center text-5xl shadow-2xl shrink-0"
+            style={`background: linear-gradient(135deg, ${app.data.color || '#34d399'}, ${app.data.color || '#34d399'}cc);`}
+          >
             <span>✦</span>
-          )}
-        </div>
+          </div>
+        )}
         
         <div class="flex-1">
           <div class="flex items-center gap-3 mb-2 flex-wrap">
